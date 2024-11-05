@@ -3,12 +3,12 @@ import { Routes, Route } from 'react-router'
 
 import { HomePage } from './pages/HomePage'
 import { AboutUs, AboutTeam, AboutVision } from './pages/AboutUs'
-import { ItemIndex } from './pages/ItemIndex.jsx'  // היה CarIndex, עכשיו ItemIndex
+import { StoreIndex } from './pages/StoreIndex.jsx' 
 import { ReviewIndex } from './pages/ReviewIndex.jsx'
 import { ChatApp } from './pages/Chat.jsx'
 import { AdminIndex } from './pages/AdminIndex.jsx'
 
-import { ItemDetails } from './pages/ItemDetails'  // היה CarDetails, עכשיו ItemDetails
+import { StoreDetails } from './pages/StoreDetails'  
 import { UserDetails } from './pages/UserDetails'
 
 import { AppHeader } from './cmps/AppHeader'
@@ -28,8 +28,8 @@ export function RootCmp() {
                 { path: 'vision', element: <AboutVision /> }
             ]
         },
-        { path: 'item', element: <ItemIndex /> },  // היה car, עכשיו item
-        { path: 'item/:itemId', element: <ItemDetails /> },  // היה carId, עכשיו itemId
+        { path: 'store', element: <StoreIndex /> },  // היה car, עכשיו store
+        { path: 'store/:storeId', element: <StoreDetails /> },  // היה carId, עכשיו storeId
         { path: 'user/:id', element: <UserDetails /> },
         { path: 'review', element: <ReviewIndex /> },
         { path: 'chat', element: <ChatApp /> },

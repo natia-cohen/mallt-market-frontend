@@ -16,8 +16,7 @@
 
 @import "pages/AboutUs";
 @import "pages/HomePage";
-@import "pages/ItemIndex";  // שונה מ-CarIndex ל-ItemIndex
-@import "pages/ReviewIndex";
+@import "pages/StoreIndex";  
 @import "pages/UserDetails";
 @import "pages/TaskDetails";
 @import "pages/LoginSignup";
@@ -30,9 +29,9 @@
 @import "cmps/AppFooter";
 @import "cmps/UserMsg";
 
-@import "cmps/ItemFilter";  // שונה מ-CarFilter ל-ItemFilter
+@import "cmps/StoreFilter";  
 @import "cmps/ReviewEdit";
 @import "cmps/ReviewList";
 @import "cmps/ReviewPreview";
-// @import "cmps/ItemList";  // שונה מ-CarList ל-ItemList
-// @import "cmps/ItemPreview";  // שונה מ-CarPreview ל-ItemPreview
+// @import "cmps/StoreList";  
+// @import "cmps/StorePreview";  

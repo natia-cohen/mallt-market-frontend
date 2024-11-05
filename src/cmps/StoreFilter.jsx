@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export function ItemFilter({ filterBy, setFilterBy }) {
+export function StoreFilter({ filterBy, setFilterBy }) {
     const [ filterToEdit, setFilterToEdit ] = useState(structuredClone(filterBy))
 
     useEffect(() => {
@@ -34,7 +34,7 @@ export function ItemFilter({ filterBy, setFilterBy }) {
     }
 
     return (
-        <section className="item-filter">
+        <section className="store-filter">
             <h3>Filter:</h3>
             <input
                 type="text"
@@ -69,7 +69,7 @@ export function ItemFilter({ filterBy, setFilterBy }) {
                     />
                 </label>
                 <label>
-                    <span>Name</span>  {/* שונה מ-Vendor ל-Name */}
+                    <span>Name</span>  
                     <input
                         type="radio"
                         name="sortField"

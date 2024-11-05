@@ -1,19 +1,23 @@
 import { legacy_createStore as createStore, combineReducers } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
-import { itemReducer } from './reducers/item.reducer'  // שינוי מ-carReducer ל-itemReducer
+import { storeReducer } from './reducers/store.reducer'  
 import { userReducer } from './reducers/user.reducer'
 import { reviewReducer } from './reducers/review.reducer'
 import { systemReducer } from './reducers/system.reducer'
 
 const rootReducer = combineReducers({
-    itemModule: itemReducer,  // שינוי מ-carModule ל-itemModule
+    storeModule: storeReducer,
     userModule: userReducer,
     systemModule: systemReducer,
     reviewModule: reviewReducer,
 })
 
-const middleware = (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__() : undefined
-export const store = createStore(rootReducer, middleware)
+// const middleware = (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__() : undefined
+// export const store = createStore(rootReducer, middleware)
+
+export const store = createStore(rootReducer, composeWithDevTools())
+
 
 // For debug:
 // store.subscribe(() => {

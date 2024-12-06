@@ -12,10 +12,12 @@ const initialState = {
 
 export function storeReducer(state = initialState, action) {
     var newState = state
-    var stores
+    var stores 
     switch (action.type) {
         case SET_STORES:
+            console.log('action.stores',action.stores)
             newState = { ...state, stores: action.stores }
+            console.log('newState',newState)
             break
         case SET_STORE:
             newState = { ...state, store: action.store }

@@ -1,25 +1,26 @@
-import React from 'react'
-import { Routes, Route } from 'react-router'
+import React from 'react';
+import { Routes, Route } from 'react-router';
+import { Provider } from 'react-redux'; // ייבוא ה-Provider
+import { store } from './store/store'; // ייבוא ה-Redux Store
 
-import { HomePage } from './pages/HomePage'
-import { AboutUs, AboutTeam, AboutVision } from './pages/AboutUs'
-import { StoreIndex } from './pages/StoreIndex.jsx' 
-import { ReviewIndex } from './pages/ReviewIndex.jsx'
-import { ChatApp } from './pages/Chat.jsx'
-import { AdminIndex } from './pages/AdminIndex.jsx'
+import { HomePage } from './pages/HomePage';
+import { AboutUs, AboutTeam, AboutVision } from './pages/AboutUs';
+import { StoreIndex } from './pages/StoreIndex.jsx';
+import { ReviewIndex } from './pages/ReviewIndex.jsx';
+import { ChatApp } from './pages/Chat.jsx';
+import { AdminIndex } from './pages/AdminIndex.jsx';
 
-import { StoreDetails } from './pages/StoreDetails'  
-import { UserDetails } from './pages/UserDetails'
+import { StoreDetails } from './pages/StoreDetails';
+import { UserDetails } from './pages/UserDetails';
 
-import { AppHeader } from './cmps/AppHeader'
-import { AppFooter } from './cmps/AppFooter'
-import { UserMsg } from './cmps/UserMsg.jsx'
-import { LoginSignup } from './pages/LoginSignup.jsx'
-import { Login } from './pages/Login.jsx'
-import { Signup } from './pages/Signup.jsx'
+import { AppHeader } from './cmps/AppHeader';
+import { AppFooter } from './cmps/AppFooter';
+import { UserMsg } from './cmps/UserMsg.jsx';
+import { LoginSignup } from './pages/LoginSignup.jsx';
+import { Login } from './pages/Login.jsx';
+import { Signup } from './pages/Signup.jsx';
 
 export function RootCmp() {
-
     const routes = [
         { path: '', element: <HomePage /> },
         {
@@ -28,8 +29,8 @@ export function RootCmp() {
                 { path: 'vision', element: <AboutVision /> }
             ]
         },
-        { path: 'store', element: <StoreIndex /> },  // היה car, עכשיו store
-        { path: 'store/:storeId', element: <StoreDetails /> },  // היה carId, עכשיו storeId
+        { path: 'store', element: <StoreIndex /> },
+        { path: 'store/:storeId', element: <StoreDetails /> },
         { path: 'user/:id', element: <UserDetails /> },
         { path: 'review', element: <ReviewIndex /> },
         { path: 'chat', element: <ChatApp /> },
@@ -40,29 +41,30 @@ export function RootCmp() {
                 { path: 'signup', element: <Signup /> }
             ]
         }
-    ]
+    ];
 
     return (
-        <div className="main-container">
-            <AppHeader />
-            <UserMsg />
-
-            <main>
-                <Routes>
-                    {routes.map((route, idx) => (
-                        route.children ? (
-                            <Route key={idx} path={route.path} element={route.element}>
-                                {route.children.map((child, idx) => (
-                                    <Route key={idx} path={child.path} element={child.element} />
-                                ))}
-                            </Route>
-                        ) : (
-                            <Route key={idx} path={route.path} element={route.element} />
-                        )
-                    ))}
-                </Routes>
-            </main>
-            <AppFooter />
-        </div>
-    )
+        <Provider store={store}> {/* עטיפת כל הקומפוננטות ב-Provider */}
+            <div className="main-container">
+                <AppHeader />
+                <UserMsg />
+                <main>
+                    <Routes>
+                        {routes.map((route, idx) => (
+                            route.children ? (
+                                <Route key={idx} path={route.path} element={route.element}>
+                                    {route.children.map((child, idx) => (
+                                        <Route key={idx} path={child.path} element={child.element} />
+                                    ))}
+                                </Route>
+                            ) : (
+                                <Route key={idx} path={route.path} element={route.element} />
+                            )
+                        ))}
+                    </Routes>
+                </main>
+                <AppFooter />
+            </div>
+        </Provider>
+    );
 }

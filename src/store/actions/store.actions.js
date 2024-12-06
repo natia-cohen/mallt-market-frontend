@@ -2,9 +2,10 @@ import { storeService } from '../../services/store/store'
 import { store } from '../store'
 import { ADD_STORE, REMOVE_STORE, SET_STORES, SET_STORE, UPDATE_STORE, ADD_STORE_MSG } from '../reducers/store.reducer' // כל פעולות ה-Redux שונו מ-Car ל-Store
 
-export async function loadStores(filterBy) {
+export async function loadStores(filterBy = '') {
     try {
         const stores = await storeService.query(filterBy)
+        console.log('stores from actions:',stores)
         store.dispatch(getCmdSetStores(stores))
     } catch (err) {
         console.log('Cannot load stores', err)

@@ -4,12 +4,12 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
-import { loadStore, addStoreMsg } from '../store/actions/store.actions'  // שונה מ-car.actions ל-store.actions
+import { loadStore, addStoreMsg } from '../store/actions/store.actions' 
 
 export function StoreDetails() {
 
-  const {storeId} = useParams()  // שונה מ-carId ל-storeId
-  const store = useSelector(storeState => storeState.storeModule.store)  // שונה מ-carModule ל-storeModule
+  const {storeId} = useParams() 
+  const store = useSelector(storeState => storeState.storeModule.store)  
 
   useEffect(() => {
     loadStore(storeId)  // שונה מ-loadCar ל-loadStore

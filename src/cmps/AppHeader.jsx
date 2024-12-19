@@ -25,7 +25,7 @@ export function AppHeader() {
 					E2E Demo
 				</NavLink>
 				<NavLink to="about">About</NavLink>
-				<NavLink to="store">Stores</NavLink>
+				<NavLink to="vendor">Vendors</NavLink>
 				<NavLink to="chat">Chat</NavLink>
 				<NavLink to="review">Review</NavLink>
 

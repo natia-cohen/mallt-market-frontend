@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export function StoreFilter({ filterBy, setFilterBy }) {
+export function VendorFilter({ filterBy, setFilterBy }) {
     const [ filterToEdit, setFilterToEdit ] = useState(structuredClone(filterBy))
 
     useEffect(() => {
@@ -34,7 +34,7 @@ export function StoreFilter({ filterBy, setFilterBy }) {
     }
 
     return (
-        <section className="store-filter">
+        <section className="vendor-filter">
             <h3>Filter:</h3>
             <input
                 type="text"

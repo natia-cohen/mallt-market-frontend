@@ -2,10 +2,10 @@ const { DEV, VITE_LOCAL } = import.meta.env
 
 import { getRandomIntInclusive, makeId , makeLorem} from '../util.service'
 
-import { storeService as local } from './store.service.local'
-import { storeService as remote } from './store.service.remote'
+import { vendorService as local } from './vendor.service.local'
+import { vendorService as remote } from './vendor.service.remote'
 
-function getEmptyStore() {
+function getEmptyVendor() {
 	return {
 		name: makeId(),
         category: makeLorem(), 
@@ -22,8 +22,9 @@ function getDefaultFilter() {
 }
 
 const service = VITE_LOCAL === 'true' ? local : remote
+console.log('service',service)
 
-export const storeService = { getEmptyStore, getDefaultFilter, ...service }
+export const vendorService = { getEmptyVendor, getDefaultFilter, ...service }
 
 
-if (DEV) window.storeService = storeService  
+if (DEV) window.vendorService = vendorService  

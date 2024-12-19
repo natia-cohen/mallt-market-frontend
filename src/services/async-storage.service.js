@@ -40,13 +40,32 @@ function put(entityType, updatedEntity) {
 }
 
 function remove(entityType, entityId) {
+    console.log(entityType,entityId)
     return query(entityType).then(entities => {
-        const idx = entities.findIndex(entity => entity._id === entityId)
-        if (idx < 0) throw new Error(`Remove failed, cannot find entity with id: ${entityId} in: ${entityType}`)
-        entities.splice(idx, 1)
-        _save(entityType, entities)
-    })
+       console.log(entities)
+        const idx = entities.findIndex(entity => {
+            console.log('entity._id',entity._id)
+            console.log('entityId',entityId)
+            entity._id === entityId
+        }
+            );
+   
+        if (idx < 0) throw new Error(`Remove failed, cannot find entity with id: ${entityId} in: ${entityType}`);
+        
+        entities.splice(idx, 1);
+        _save(entityType, entities);
+    });
 }
+
+
+// function remove(entityType, entityId) {
+//     return query(entityType).then(entities => {
+//         const idx = entities.findIndex(entity => entity._id === entityId)
+//         if (idx < 0) throw new Error(`Remove failed, cannot find entity with id: ${entityId} in: ${entityType}`)
+//         entities.splice(idx, 1)
+//         _save(entityType, entities)
+//     })
+// }
 
 // Private functions
 

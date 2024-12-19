@@ -1,13 +1,13 @@
 import { legacy_createStore as createStore, combineReducers } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-import { storeReducer } from './reducers/store.reducer'  
+import { vendorReducer } from './reducers/vendor.reducer'  
 import { userReducer } from './reducers/user.reducer'
 import { reviewReducer } from './reducers/review.reducer'
 import { systemReducer } from './reducers/system.reducer'
 
 const rootReducer = combineReducers({
-    storeModule: storeReducer,
+    vendorModule: vendorReducer,
     userModule: userReducer,
     systemModule: systemReducer,
     reviewModule: reviewReducer,
@@ -20,8 +20,8 @@ export const store = createStore(rootReducer, middleware)
 
 
 // For debug:
-store.subscribe(() => {
-    console.log('**** Store state changed: ****')
-    console.log('storeState:\n', store.getState())
-    console.log('*******************************')
-})
+// store.subscribe(() => {
+//     console.log('**** Store state changed: ****')
+//     console.log('storeState:\n', store.getState())
+//     console.log('*******************************')
+// })
